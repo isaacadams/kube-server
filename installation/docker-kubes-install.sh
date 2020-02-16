@@ -4,6 +4,7 @@ apt-get update && apt-get install -y gnupg2 apt-transport-https ca-certificates 
 
 source /etc/os-release
 CODENAME=$(echo "$VERSION_CODENAME") #the codename or version: jessie, buster
+CODENAME=$(cat /etc/os-release | grep -oP -m 1 '(?<=\()\w+')
 DISTRO=$(echo "$ID") #the distribution: debian, unbuntu, fedora
 ARCH=$(dpkg --print-architecture) #the architecture: amd64
 
